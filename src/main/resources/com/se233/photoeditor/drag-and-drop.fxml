@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FEF9F6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.se233.photoeditor.controllers.DragAndDropController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="800.0">
+         <center>
+            <AnchorPane maxHeight="400.0" prefHeight="400.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="42.0" layoutY="-5.0" prefHeight="393.0" prefWidth="739.0" spacing="30.0">
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <StackPane fx:id="dropArea" layoutX="1.0" layoutY="55.0" prefHeight="320.0" prefWidth="347.0" styleClass="dashed-border">
+                                 <children>
+                                    <Text fx:id="dropLabel" fill="#887e7e" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-border-color: black;" text="Drag JPG, PNG or ZIP file(s) here" translateY="43.0" x="21.0" />
+                                    <ImageView fitHeight="87.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0" translateY="-20.0">
+                                       <image>
+                                          <Image url="@assets/images/file-icon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Text layoutX="5.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What would you like to do?">
+                                 <font>
+                                    <Font name="Satoshi Bold" size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <StackPane prefHeight="393.0" prefWidth="363.0">
+                           <children>
+                              <Text fx:id="fileListLabel" fill="#00000085" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Files will appear here">
+                                 <font>
+                                    <Font name="Satoshi Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                              <ScrollPane hbarPolicy="NEVER" hmax="0.0" maxHeight="406.0" style="-fx-background-color: transparent; -fx-border-width: 0.7px; -fx-border-style: solid;" styleClass="dashed-border" vbarPolicy="NEVER">
+                                 <content>
+                                    <FlowPane fx:id="imageFileListScrollPane" prefWidth="360.0" />
+                                 </content>
+                                 <StackPane.margin>
+                                    <Insets top="15.0" />
+                                 </StackPane.margin>
+                              </ScrollPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <AnchorPane prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="addWaterMarkBtn" disable="true" layoutX="459.0" layoutY="20.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" style="-fx-background-color: #A47551;" text="Add Watermark" textFill="WHITE">
+                     <font>
+                        <Font name="Satoshi Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="resizeBtn" disable="true" layoutX="622.0" layoutY="20.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" style="-fx-background-color: #A47551;" text="Resize" textFill="WHITE">
+                     <font>
+                        <Font name="Satoshi Bold" size="13.0" />
+                     </font></Button>
+                  <Button fx:id="exitBtn" layoutX="59.0" layoutY="24.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: #83452e;" text="Exit" textFill="WHITE">
+                     <font>
+                        <Font name="Satoshi Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <top>
+            <AnchorPane prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text layoutX="245.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="cookie-font" text="SE233 Project 1 by Potato and French Fry" textAlignment="CENTER" wrappingWidth="309.6339988708496">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane fx:id="unzipProgressPane" layoutX="503.0" layoutY="33.0" prefHeight="51.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <ProgressBar fx:id="unzipProgressBar" layoutY="23.0" prefWidth="200.0" progress="0.0" />
+                        <Label layoutX="56.0" text="Unzip Progress" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
